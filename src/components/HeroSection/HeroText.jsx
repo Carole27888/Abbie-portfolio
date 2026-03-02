@@ -12,7 +12,7 @@ const HeroText = () => {
         viewport={{ once: false, amount: 0 }}
         className="text-sm md:text-base uppercase tracking-[0.2em] text-emerald-700 font-semibold"
       >
-        Virtual Assistant
+        Virtual Assistant / SMM
       </motion.p>
 
       <motion.h1
@@ -32,7 +32,7 @@ const HeroText = () => {
         viewport={{ once: false, amount: 0 }}
         className="text-base md:text-lg text-slate-600 max-w-xl"
       >
-        Organized, proactive, and detail-driven virtual assistant helping teams stay focused, clients stay informed, and operations run smoothly.
+        Organized, proactive, and detail-driven Virtual Assistant / SMM helping teams stay focused, clients stay informed, and social channels stay active.
       </motion.p>
 
       <motion.div
