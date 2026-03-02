@@ -1,14 +1,19 @@
-import React from 'react'
-import { FiArrowDownRight } from "react-icons/fi";
+import { FiArrowDownRight } from 'react-icons/fi'
+import { Link } from 'react-scroll'
 
-const NavbarBtn = () => {
+const NavbarBtn = ({ className = '' }) => {
   return (
-    <button className=" px-4 py-2 rounded-full text-xl font-bold font-body text-white border-red border flex items-center gap-1 bg-gradient-to-r  from-darkCyan to-black transition-all duration-500 hover:scale-110 hover:border-orange cursor-pointer hover:shadow-cyanShadow">
-        Let's Work
-        <div className= 'hidden md:block'>
-        <FiArrowDownRight />
-        </div>
-    </button>
+    <Link
+      to="contact"
+      spy={true}
+      smooth={true}
+      duration={500}
+      offset={-110}
+      className={`px-4 py-2 rounded-full text-sm md:text-base font-semibold text-white flex items-center gap-2 bg-gradient-to-r from-emerald-700 to-teal-500 hover:scale-105 transition-all duration-300 cursor-pointer ${className}`}
+    >
+      Hire Me
+      <FiArrowDownRight />
+    </Link>
   )
 }
 

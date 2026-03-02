@@ -1,10 +1,10 @@
-import React from 'react'
-
 const ExperienceText = () => {
   return (
-    <div className='flex flex-col items-center mt-[100px]'>
-        <h2 className='text-6xl text-red mb-10'>Experience</h2>
-
+    <div className="flex flex-col items-center mt-24">
+      <h2 className="text-4xl md:text-5xl text-slate-800 mb-4 font-special">Experience</h2>
+      <p className="text-slate-600 text-center max-w-2xl">
+        Virtual assistant projects focused on streamlining administrative workflows and improving client response quality.
+      </p>
     </div>
   )
 }

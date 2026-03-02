@@ -1,18 +1,11 @@
-import React from 'react'
-
 const ExperienceTopRight = () => {
   return (
-    <div className="xl:w-[25%] lg:w-[30%] border border-lightBrown p-4 rounded-xl">
-        <p className="text-lg text-center text-lightGrey">  
-  I am experienced in{" "}  
-  <span className="font-bold text-white">  
-    HTML, CSS, JavaScript, React, Python, and Flask  
-  </span>, crafting dynamic and user-friendly web solutions. <br />  
-  With one year of experience and five completed projects, I have worked on diverse websites, from small business platforms to{" "}  
-  <span className="font-bold text-white">  
-    complex full-stack applications  
-  </span>, ensuring scalability, efficiency, and seamless user experiences.  
-</p>
+    <div className="xl:w-[30%] lg:w-[34%] border border-emerald-100 p-6 rounded-2xl bg-white shadow-sm">
+      <p className="text-base text-slate-600">
+        Abigael supports growing teams through clear communication, strong organization, and reliable execution.
+        Her workflow includes inbox handling, calendar support, documentation, and client coordination to reduce
+        operational friction and improve daily efficiency.
+      </p>
     </div>
   )
 }

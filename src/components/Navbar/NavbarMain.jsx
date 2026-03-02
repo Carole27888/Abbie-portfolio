@@ -1,29 +1,36 @@
-import React from 'react'
 import NavbarLogo from './NavbarLogo'
 import NavbarLinks from './NavbarLinks'
 import NavbarBtn from './NavbarBtn'
-import { RxHamburgerMenu } from "react-icons/rx";
-import {useState} from 'react'
+import { RxHamburgerMenu } from 'react-icons/rx'
+import { useState } from 'react'
 
 const NavbarMain = () => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen)
-  }
+
   return (
-    <nav className="max-w-[1300px] mx-auto w-full px-4 fixed left-[50%] -translate-x-[50%] z-20 flex gap-4 mt-2">
-      <div className="flex justify-between w-full max-w-[1200px] mx-auto bg-black items-center p-4 sm:p-6 rounded-r-full rounded-l-full border-red border-[0.5px]">
+    <nav className="fixed top-3 inset-x-0 z-30 px-3 sm:px-4">
+      <div className="relative flex justify-between w-full max-w-[1200px] mx-auto bg-white items-center p-3 sm:p-4 rounded-2xl border border-emerald-100 shadow-md">
         <NavbarLogo />
-        <div className = { `${menuOpen ? 'block' : 'hidden'} lg:block`}>
+        <div className="hidden lg:block">
           <NavbarLinks />
         </div>
-        <NavbarBtn />
-      </div>
-      <div className='flex lg:hidden p-4 sm:p-6 bg-black items-center justify-center rounded-full border-red border-[0.5px]'>
-        <button className='text-white text-2xl p-3 border border-red rounded-full' onClick={toggleMenu}>
+        <NavbarBtn className="hidden sm:flex" />
+        <button
+          className="text-emerald-700 text-2xl lg:hidden"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
           <RxHamburgerMenu />
         </button>
-        
+
+        {menuOpen && (
+          <div className="absolute top-[calc(100%+0.6rem)] left-0 right-0 lg:hidden">
+            <NavbarLinks isMobile={true} onNavigate={() => setMenuOpen(false)} />
+            <div className="mt-3 px-2">
+              <NavbarBtn className="w-full justify-center sm:hidden" />
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   )

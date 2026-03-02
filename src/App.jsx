@@ -1,4 +1,3 @@
-
 import NavbarMain from './components/Navbar/NavbarMain'
 import HeroMain from './components/HeroSection/HeroMain'
 import HeroGradient from './components/HeroSection/HeroGradient'
@@ -12,13 +11,9 @@ import ProjectsMain from './components/ProjectsSection/ProjectsMain'
 import ContactMeMain from './components/ContactMeSection/ContactMeMain'
 import FooterMain from './components/FooterSection/FooterMain'
 
-
-
 function App() {
-  
-
   return (
-    <main className="font-body">
+    <main className="font-body overflow-x-hidden">
       <NavbarMain />
       <HeroMain />
       <HeroGradient />
@@ -32,8 +27,6 @@ function App() {
       <ContactMeMain />
       <FooterMain />
     </main>
-      
-    
   )
 }
 

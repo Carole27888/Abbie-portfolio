@@ -1,54 +1,30 @@
-// import React from 'react';
-// import SkillsText from './SkillsText';
-// import AllSkills from './AllSkills';
-// import AllSkillsSm from './AllSkillsSm';
-
-// const SkillsMain = () => {
-//   return (
-//     <div id="skills">
-//       <div className="max-w-[1200px] px-4 mx-auto min-h-[600px] relative overflow-hidden">
-//         <SkillsText />
-//       </div>
-
-      
-//       <div className="bottom-[50px] absolute left-[50%] -translate-x-[50%] sm:hidden lg:block">
-//         <AllSkills />
-//       </div>
-//       <div className="sm:block lg:hidden">
-//         <AllSkillsSm />
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default SkillsMain;
-import AllSkills from "./AllSkills";
-import AllSkillsSm from "./AllSkillsSm";
-import SkillsText from "./SkillsText";
-import { motion } from "framer-motion";
-import { fadeIn } from "../../framerMotion/variants";
+import AllSkills from './AllSkills'
+import AllSkillsSm from './AllSkillsSm'
+import SkillsText from './SkillsText'
+import { motion } from 'framer-motion'
+import { fadeIn } from '../../framerMotion/variants'
 
 const SkillsMain = () => {
   return (
-    <div id="skills">
-      <div className="max-w-[1200px] px-4 sm:px-6 md:px-8 mx-auto min-h-[600px] relative overflow-hidden">
+    <section id="skills" className="mt-8">
+      <div className="max-w-[1200px] px-4 sm:px-6 md:px-8 mx-auto">
         <motion.div
-          variants={fadeIn("down", 0.2)}
+          variants={fadeIn('down', 0.2)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: false, amount: 0.7 }}
         >
           <SkillsText />
         </motion.div>
-        <div className="hidden lg:block lg:absolute lg:bottom-[50px] lg:left-[50%] lg:-translate-x-[50%]">
+        <div className="hidden lg:block mt-12">
           <AllSkills />
         </div>
-        <div className="block lg:hidden">
+        <div className="block lg:hidden mt-8">
           <AllSkillsSm />
         </div>
       </div>
-    </div>
-  );
-};
+    </section>
+  )
+}
 
-export default SkillsMain;
+export default SkillsMain

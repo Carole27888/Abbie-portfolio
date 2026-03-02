@@ -1,16 +1,16 @@
 const AboutMeImage = () => {
   return (
-    <div className="relative w-full max-w-[300px] h-[360px] sm:h-[420px] md:h-[500px] mx-auto">
-      <div className="absolute inset-0 rounded-[100px] overflow-hidden">
+    <div className="relative w-full max-w-[320px] h-[390px] sm:h-[450px] md:h-[500px] mx-auto">
+      <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden border-8 border-white shadow-xl">
         <img
-          src="./images/Futurism.jpeg"
-          alt="About Me Image"
+          src="/images/Abbie1.jpeg"
+          alt="Abigael at work"
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="h-full w-[85%] bg-red absolute bottom-[-30px] left-[-20px] rounded-bl-[120px] rounded-tr-[120px] rounded-br-[20px] rounded-tl-[20px] -z-10"></div>
+      <div className="h-full w-[85%] bg-gradient-to-b from-orange-300 to-orange-200 absolute bottom-[-20px] left-[-18px] rounded-[2.5rem] -z-10" />
     </div>
-  );
-};
+  )
+}
 
-export default AboutMeImage;
+export default AboutMeImage

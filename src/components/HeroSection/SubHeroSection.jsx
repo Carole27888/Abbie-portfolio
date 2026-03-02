@@ -1,11 +1,11 @@
 const SubHeroMain = () => {
   return (
-    <div className="w-full border-y bg-brown border-lightGrey text-lightGrey flex flex-col md:flex-row justify-around uppercase text-2xl md:text-2xl xl:text-4xl py-8 items-center gap-4">
-      <p className="hidden md:block">Detail-Oriented</p>
-      <p className="hidden md:block">Solution Architect</p>
-      <p>Innovative Creator</p>
+    <div className="w-full border-y border-emerald-100 bg-white/70 backdrop-blur-sm text-slate-700 flex flex-col md:flex-row justify-around text-lg md:text-xl py-6 items-center gap-3 font-semibold">
+      <p>Inbox & Calendar Management</p>
+      <p>Client Communication Support</p>
+      <p>Admin Workflow Optimization</p>
     </div>
-  );
-};
+  )
+}
 
-export default SubHeroMain;
+export default SubHeroMain

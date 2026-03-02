@@ -1,11 +1,5 @@
-import React from 'react'
-
 const HelperSection = () => {
-  return (
-    <div className= 'h-[10vh]'>
-
-    </div>
-  )
+  return <div className="h-[6vh]" />
 }
 
 export default HelperSection

@@ -1,14 +1,24 @@
-import React from 'react'
+import { Link } from 'react-scroll'
 
-const aboutMeText = () => {
+const AboutMeText = () => {
   return (
-    <div className="flex flex-col items-center text-center md:items-start md:text-left">
-      <h2 className="text-6xl text-red mb-10">About Me</h2>
-      <p className='text-white'>I’m Carole Mutemi, a passionate and detail-oriented full-stack developer dedicated to crafting innovative and user-centric digital solutions. With a strong problem-solving mindset and a keen eye for design, I specialize in building seamless and efficient web experiences. My approach combines creativity with technical expertise to develop scalable and high-performance applications. Always eager to learn and adapt, I thrive in dynamic environments where I can contribute to impactful projects. Whether optimizing front-end interactions or enhancing back-end functionality, I am committed to delivering exceptional results that drive success.</p> 
-      <button className="border border-red rounded-full py-2 px-4 text-lg flex gap-2 items-center mt-10 hover:bg-orange transition-all duration-500 cursor-pointer self-center md:self-start text-white">My Projects</button>
+    <div className="flex flex-col items-center text-center md:items-start md:text-left bg-white border border-emerald-100 rounded-3xl p-8 shadow-sm">
+      <h2 className="text-4xl md:text-5xl text-slate-800 mb-6 font-special">About Abigael</h2>
+      <p className="text-slate-600 leading-8">
+        Abigael Ngotho is a reliable and detail-oriented virtual assistant who supports entrepreneurs, startups, and busy professionals with day-to-day operations. She specializes in managing inboxes, calendars, scheduling, documentation, and client follow-ups to keep workflows organized and deadlines on track. With a strong sense of ownership and clear communication style, Abigael helps teams reduce admin pressure, improve response times, and stay focused on high-impact work.
+      </p>
+      <Link
+        to="projects"
+        spy={true}
+        smooth={true}
+        duration={500}
+        offset={-110}
+        className="mt-8 border border-emerald-700 rounded-xl py-3 px-5 text-base font-semibold text-emerald-800 hover:bg-emerald-50 transition-all duration-300 cursor-pointer"
+      >
+        Explore Services
+      </Link>
     </div>
-
   )
 }
 
-export default aboutMeText
+export default AboutMeText

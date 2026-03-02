@@ -1,62 +1,61 @@
-import React from 'react';
-import { FaArrowRight } from "react-icons/fa";
-import SingleExperience from './SingleExperience'; 
-import { motion } from "framer-motion";
-import { fadeIn } from "../../framerMotion/variants";
+import { FaArrowRight } from 'react-icons/fa'
+import SingleExperience from './SingleExperience'
+import { motion } from 'framer-motion'
+import { fadeIn } from '../../framerMotion/variants'
 
 const experiences = [
   {
-    job: 'Software Developer',
-    company: 'Labedan IT Solutions',
-    duration: 'June 2025 – Feb 2026',
-    Responsibilities: [
-      'Build enterprise full-stack systems with Next.js, TypeScript, Node.js, Express, and MongoDB',
-      'Architect auth, validation, routing, and role-based logic for complex workflows',
-      'Implement PDF engines, multi-step approvals, and automation tooling'
-    ]
+    job: 'Virtual Assistant',
+    company: 'Northbridge Administrative Services',
+    duration: 'January 2025 - Present',
+    responsibilities: [
+      'Manage executive calendars and meeting scheduling across multiple time zones',
+      'Coordinate inbox prioritization and draft professional client responses',
+      'Track tasks and follow-ups to maintain weekly operational consistency',
+    ],
   },
   {
-    job: 'Backend Developer',
-    company: 'Enlabeler (Remote)',
-    duration: 'April 2024 – August 2024',
-    Responsibilities: [
-      'Developed automation pipelines for AI/ML training datasets',
-      'Built ingestion, validation, and annotation management scripts',
-      'Designed REST APIs and data queries for analysis and QA'
-    ]
+    job: 'Remote Operations Assistant',
+    company: 'Stratify Client Solutions',
+    duration: 'May 2024 - December 2024',
+    responsibilities: [
+      'Prepared client-facing reports and maintained CRM records accurately',
+      'Supported onboarding workflows, meeting notes, and process documentation',
+      'Handled communication handoffs between internal teams and external stakeholders',
+    ],
   },
   {
-    job: 'Software Developer',
-    company: 'NexaTech Digital Solutions (Contract)',
-    duration: 'January 2024 – March 2024',
-    Responsibilities: [
-      'Built full-stack apps with React/Next.js, Node.js, SQL, and MongoDB',
-      'Designed optimized APIs, schemas, and workflow automation',
-      'Implemented dashboards, scheduled jobs, and integrations'
-    ]
-  }
-];
+    job: 'Freelance Virtual Assistant',
+    company: 'Independent Remote Clients',
+    duration: '2023 - 2024',
+    responsibilities: [
+      'Delivered admin support for entrepreneurs, including file and data management',
+      'Provided customer communication support and timely follow-up tracking',
+      'Set up lightweight systems for recurring admin tasks and reminders',
+    ],
+  },
+]
 
 const AllExperience = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-3">
       {experiences.map((experience, index) => (
-        <React.Fragment key={index}> {/* Move key here */}
+        <div key={index} className="flex items-center gap-3">
           <SingleExperience experience={experience} />
-          {index < 2 && (  // Only show the arrow for the first two experiences
+          {index < 2 && (
             <motion.div
-              variants={fadeIn("right", 0.4)} // Add motion here for arrow animation
+              variants={fadeIn('right', 0.4)}
               initial="hidden"
               whileInView="show"
               viewport={{ once: false, amount: 0.7 }}
             >
-              <FaArrowRight className="hidden lg:block text-6xl text-orange" />
+              <FaArrowRight className="hidden lg:block text-3xl text-orange-400" />
             </motion.div>
           )}
-        </React.Fragment>
+        </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default AllExperience;
+export default AllExperience

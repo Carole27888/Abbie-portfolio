@@ -1,98 +1,80 @@
-import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const ContactForm = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-    const [status, setStatus] = useState('idle'); // idle | sending | success | error
-    const [statusMessage, setStatusMessage] = useState('');
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [status, setStatus] = useState('idle')
+  const [statusMessage, setStatusMessage] = useState('')
 
-    const handlename = (e) => {
-        setName(e.target.value);
-    };
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    };
-    const handleMessage = (e) => {
-        setMessage(e.target.value);
-    };
+  const form = useRef()
 
-    const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault()
+    setStatus('sending')
+    setStatusMessage('')
 
-    const sendEmail = (e) => {
-        e.preventDefault();
-        setStatus('sending');
-        setStatusMessage('');
+    emailjs
+      .sendForm('service_k9jv2py', 'template_mm7jxva', form.current, {
+        publicKey: '1cGHRylC2dtLaN7Kh',
+      })
+      .then(
+        () => {
+          setName('')
+          setEmail('')
+          setMessage('')
+          setStatus('success')
+          setStatusMessage('Message sent successfully.')
+        },
+        () => {
+          setStatus('error')
+          setStatusMessage('Message failed to send. Please try again.')
+        },
+      )
+  }
 
-        emailjs
-            .sendForm('service_057vkfl', 'template_21pgq1m', form.current, {
-                publicKey: 'FzG-6ifmIbi76vaEz',
-            })
-            .then(
-                () => {
-                    setName('');
-                    setEmail('');
-                    setMessage('');
-                    setStatus('success');
-                    setStatusMessage('Message sent successfully.');
-                },
-                (error) => {
-                    console.log('FAILED...', error.text);
-                    setStatus('error');
-                    setStatusMessage('Message failed to send. Please try again.');
-                }
-            );
-    };
+  return (
+    <div>
+      {statusMessage && <p className={status === 'error' ? 'text-red-600 mb-2' : 'text-emerald-700 mb-2'}>{statusMessage}</p>}
+      <form className="flex flex-col gap-4 text-slate-700" ref={form} onSubmit={sendEmail}>
+        <input
+          name="name"
+          type="text"
+          placeholder="Your Name"
+          required
+          className="h-12 rounded-xl bg-emerald-50/60 border border-emerald-100 px-3"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          name="email"
+          type="email"
+          placeholder="Your Email"
+          required
+          className="h-12 rounded-xl bg-emerald-50/60 border border-emerald-100 px-3"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <textarea
+          name="message"
+          placeholder="Message"
+          required
+          className="rounded-xl bg-emerald-50/60 border border-emerald-100 p-3"
+          rows={5}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="w-full rounded-xl text-white h-12 font-semibold bg-gradient-to-r from-emerald-700 to-teal-500 hover:opacity-90 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+          disabled={status === 'sending'}
+        >
+          {status === 'sending' ? 'Sending...' : 'Send Message'}
+        </button>
+      </form>
+    </div>
+  )
+}
 
-    return (
-        <div>
-            {statusMessage && (
-                <p className={status === 'error' ? 'text-red' : 'text-cyan'}>
-                    {statusMessage}
-                </p>
-            )}
-            <form
-                className='flex flex-col gap-4 text-white'
-                ref={form}
-                onSubmit={sendEmail}
-            >
-                <input
-                    name="name"
-                    type="text"
-                    placeholder="Your Name"
-                    required
-                    className="h-12 rounded-lg bg-grey px-2"
-                    value={name}
-                    onChange={handlename}
-                />
-                <input
-                    name="email"
-                    type="email"
-                    placeholder="Your Email"
-                    required
-                    className="h-12 rounded-lg bg-grey px-2"
-                    value={email}
-                    onChange={handleEmail}
-                />
-                <textarea
-                    name="message"
-                    placeholder="Message"
-                    required
-                    className="rounded-lg bg-grey p-2"
-                    value={message}
-                    onChange={handleMessage}
-                />
-                <button
-                    type="submit" // Submit the form when clicked
-                    className="w-full rounded-lg border border-cyan text-white h-12 font-bold text-xl hover:bg-darkCyan bg-cyan transition-all duration-500 disabled:opacity-60 disabled:cursor-not-allowed"
-                    disabled={status === 'sending'}
-                >
-                    {status === 'sending' ? 'Sending...' : 'Send'}
-                </button>
-            </form>
-        </div>
-    );
-};
-
-export default ContactForm;
+export default ContactForm

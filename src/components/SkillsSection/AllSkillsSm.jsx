@@ -1,71 +1,37 @@
-import React from 'react';
-import { FaHtml5 } from "react-icons/fa";
-import { FaCss3Alt } from "react-icons/fa";
-import { IoLogoJavascript } from "react-icons/io";
-import { RiReactjsLine } from "react-icons/ri";
-import { SiTailwindcss } from "react-icons/si";
-import { FaGit } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaFigma } from "react-icons/fa";
-import { FaPython } from "react-icons/fa";
-import { FaFlask } from "react-icons/fa";
+import { FaRegCalendarCheck, FaTasks } from 'react-icons/fa'
+import { MdOutlineMailOutline } from 'react-icons/md'
+import { HiOutlineDocumentText } from 'react-icons/hi2'
+import { BsPeople } from 'react-icons/bs'
+import { TbReportAnalytics } from 'react-icons/tb'
+import { RiCustomerService2Line } from 'react-icons/ri'
+import { FiClock } from 'react-icons/fi'
+import { SlNotebook } from 'react-icons/sl'
+import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5'
 
 const skills = [
-  {
-    skill: "HTML",
-    icon: FaHtml5,
-  },
-  {
-    skill: "CSS",
-    icon: FaCss3Alt,
-  },
-  {
-    skill: "JavaScript",
-    icon: IoLogoJavascript,
-  },
-  {
-    skill: "React JS",
-    icon: RiReactjsLine,
-  },
-  {
-    skill: "Tailwind",
-    icon: SiTailwindcss,
-  },
-  {
-    skill: "Git",
-    icon: FaGit,
-  },
-  {
-    skill: "GitHub",
-    icon: FaGithub,
-  },
-  {
-    skill: "Figma",
-    icon: FaFigma,
-  },
-  {
-    skill: "Python",
-    icon: FaPython,
-  },
-  {
-    skill: "Flask",
-    icon: FaFlask,
-  },
-];
+  { skill: 'Calendar Management', icon: FaRegCalendarCheck },
+  { skill: 'Inbox Management', icon: MdOutlineMailOutline },
+  { skill: 'Task Coordination', icon: FaTasks },
+  { skill: 'Client Follow-ups', icon: BsPeople },
+  { skill: 'Meeting Documentation', icon: HiOutlineDocumentText },
+  { skill: 'Report Preparation', icon: TbReportAnalytics },
+  { skill: 'Customer Support', icon: RiCustomerService2Line },
+  { skill: 'Time Management', icon: FiClock },
+  { skill: 'Data Organization', icon: SlNotebook },
+  { skill: 'Process Execution', icon: IoCheckmarkDoneCircleOutline },
+]
 
 const AllSkillsSm = () => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 my-12">
-      {skills.map((item, index) => {
-        return (
-          <div key={index} className="flex flex-col items-center">
-            <item.icon className="text-5xl text-orange " />
-            <p className="text-center mt-4 text-lg font-medium text-white">{item.skill}</p>
-          </div>
-        );
-      })}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 my-12">
+      {skills.map((item, index) => (
+        <div key={index} className="flex flex-col items-center bg-white rounded-2xl border border-emerald-100 p-4 shadow-sm">
+          <item.icon className="text-4xl text-emerald-700" />
+          <p className="text-center mt-3 text-sm md:text-base font-medium text-slate-700">{item.skill}</p>
+        </div>
+      ))}
     </div>
-  );
-};
+  )
+}
 
-export default AllSkillsSm;
+export default AllSkillsSm

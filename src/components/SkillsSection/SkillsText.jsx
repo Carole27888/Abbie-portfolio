@@ -1,10 +1,10 @@
-import React from 'react'
-
 const SkillsText = () => {
   return (
-    <div className="flex flex-col items-center mt-[50px]">
-        <h2 className="text-6xl text-red mb-10">My Skills</h2>
-        <p className="text-lg text-center text-white">Here are some of the technologies I have been working with recently, focusing on both front-end and back-end development. <br/>I utilize these tools to build scalable, user-friendly, and efficient web applications.</p>
+    <div className="flex flex-col items-center mt-14">
+      <h2 className="text-4xl md:text-5xl text-slate-800 mb-6 font-special text-center">Core Strengths</h2>
+      <p className="text-base md:text-lg text-center text-slate-600 max-w-3xl">
+        Abigael combines administrative excellence, communication clarity, and digital tool fluency to support fast-moving teams with dependable virtual assistance.
+      </p>
     </div>
   )
 }

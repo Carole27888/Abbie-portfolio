@@ -1,13 +1,14 @@
-import React from 'react';
-
 const Social = ({ Icon, link }) => {
   return (
-    <div className='text-2xl h-12 w-12 border border-red text-red rounded-full p-3 flex items-center justify-center'>
-      <a href={link} target="_blank" rel="noopener noreferrer" className='cursor-pointer'>
-        <Icon />
-      </a>
-    </div>
-  );
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-xl h-11 w-11 border border-emerald-200 text-emerald-700 rounded-xl flex items-center justify-center hover:bg-emerald-50 transition-colors duration-300"
+    >
+      <Icon />
+    </a>
+  )
 }
 
-export default Social;
+export default Social
